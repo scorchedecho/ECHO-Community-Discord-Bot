@@ -1,0 +1,7 @@
+config.json
+.idea/*
+discord_assets
+
+*.iml
+
+target/*
