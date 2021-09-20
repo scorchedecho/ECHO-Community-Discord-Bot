@@ -111,4 +111,15 @@ public class DefaultEmbeds {
         return embed.build();
     }
 
+    public static MessageEmbed art() {
+        EmbedBuilder embed = new EmbedBuilder();
+        MessageUtilities.addEmbedDefaults(embed);
+        embed.setColor(new Color(111, 83, 112));
+
+        embed.setTitle("All art in this channel is created by scorchedE.C.H.O", "https://www.deviantart.com/scorched-echo");
+        embed.addField("Please do not use my artwork without permission.", "Do not use, copy, trace, or steal any artworks in this channel.", false);
+
+        return embed.build();
+    }
+
 }

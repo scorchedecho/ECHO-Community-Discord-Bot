@@ -41,9 +41,6 @@ public class AddDefaultEmbedCommand extends Command {
                 mre.getChannel().sendMessageEmbeds(DefaultEmbeds.donations()).queue();
             }
             else if (embedOption.contains("server")) {
-                // welcome
-                mre.getChannel().sendFile(Constants.WELCOME).queue();
-
                 // info
                 mre.getChannel().sendFile(Constants.INFO).queue();
 
@@ -57,19 +54,20 @@ public class AddDefaultEmbedCommand extends Command {
                 mre.getChannel().sendMessageEmbeds(DefaultEmbeds.rules()).queue();
             }
             else if (embedOption.contains("partners")) {
-
+                mre.getChannel().sendFile(Constants.PARTNERS).queue();
             }
             else if (embedOption.contains("giveaways")) {
-
+                mre.getChannel().sendFile(Constants.GIVEAWAY).queue();
             }
             else if (embedOption.contains("adopts")) {
-
+                mre.getChannel().sendFile(Constants.ADOPTS).queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.art()).queue();
             }
             else if (embedOption.contains("nitro")) {
 
             }
             else if (embedOption.contains("events")) {
-
+                mre.getChannel().sendFile(Constants.EVENTS).queue();
             }
             else if (embedOption.contains("roles")) {
 

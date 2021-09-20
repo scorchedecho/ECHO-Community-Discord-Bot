@@ -16,6 +16,7 @@
 package com.github.echo.core;
 
 import com.github.echo.core.commands.*;
+import com.github.echo.core.commands.admin.LiveCommand;
 import com.github.echo.core.commands.admin.ShutdownCommand;
 import com.github.echo.core.commands.admin.UpdateConfigCommand;
 import com.github.echo.core.commands.admin.embeds.AddDefaultEmbedCommand;
@@ -127,6 +128,7 @@ public class Main {
         // admin
         registerCommand(new ShutdownCommand());
         registerCommand(new UpdateConfigCommand());
+        registerCommand(new LiveCommand());
 
         // admin embeds
         registerCommand(new AddDefaultEmbedCommand());
@@ -263,7 +265,7 @@ public class Main {
         getLog().info("Active for " + ((timeActive / 1000) / 60) + " minutes. (" + (timeActive / 1000) + " seconds)");
         getLog().info("Beginning shutdown.");
 
-        // Remove event listeners. The Bot can shutdown before these are defined.
+        // Remove event listeners. The Bot can shut down before these are defined.
         try {
             api.removeEventListener(api.getRegisteredListeners());
         }

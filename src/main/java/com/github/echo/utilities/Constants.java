@@ -80,7 +80,7 @@ public class Constants {
     public static final File DONATIONS = new File("discord_assets/Donations.png");
     public static final File PARTNERS = new File("discord_assets/Partners.png");
     public static final File ROLES = new File("discord_assets/Roles.png");
-    public static final File GIVEAWAY = new File("discord_assets/Giveaway.png");
+    public static final File GIVEAWAY = new File("discord_assets/Giveaways.png");
     public static final File EVENTS = new File("discord_assets/Events.png");
     public static final File LINKS = new File("discord_assets/Links.png");
  }
