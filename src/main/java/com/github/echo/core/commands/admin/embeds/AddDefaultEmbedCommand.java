@@ -5,6 +5,7 @@ import com.github.echo.core.commands.Command;
 import com.github.echo.core.commands.Modules;
 import com.github.echo.utilities.Constants;
 import com.github.echo.utilities.DefaultEmbeds;
+import com.github.echo.utilities.RoleReactEmbeds;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -29,7 +30,7 @@ public class AddDefaultEmbedCommand extends Command {
         // Embed Menu
         if (!mre.getChannel().getId().equals("")) {
             if (embedOption.contains("wip")) {
-
+                mre.getChannel().sendMessage("You don't have any WIP embeds.").queue();
             }
             else if (embedOption.contains("info")) {
                 // links and socials
@@ -43,6 +44,7 @@ public class AddDefaultEmbedCommand extends Command {
             else if (embedOption.contains("server")) {
                 // info
                 mre.getChannel().sendFile(Constants.INFO).queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.credits()).queue();
 
                 // applications
                 mre.getChannel().sendFile(Constants.APPLICATIONS).queue();
@@ -70,7 +72,18 @@ public class AddDefaultEmbedCommand extends Command {
                 mre.getChannel().sendFile(Constants.EVENTS).queue();
             }
             else if (embedOption.contains("roles")) {
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.redRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.yellowRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.greenRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.blueRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.purpleRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.pinkRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.otherRoles()).queue();
 
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.aboutYouRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.pronounRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.vrchatRoles()).queue();
+                mre.getChannel().sendMessageEmbeds(RoleReactEmbeds.notificationRoles()).queue();
             }
             else {
                 mre.getChannel().sendMessage("Try again, ECHO.").queue();

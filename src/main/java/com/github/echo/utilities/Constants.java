@@ -83,4 +83,97 @@ public class Constants {
     public static final File GIVEAWAY = new File("discord_assets/Giveaways.png");
     public static final File EVENTS = new File("discord_assets/Events.png");
     public static final File LINKS = new File("discord_assets/Links.png");
+
+    /**
+     * Pronouns
+     */
+
+    // Emotes
+    public static final String EMOTE_GIRL = "\uD83D\uDC69";
+    public static final String EMOTE_BOY = "\uD83D\uDC68";
+    public static final String EMOTE_NEUTRAL = "\uD83E\uDDD1";
+
+    /**
+     * Colors
+     */
+
+    public static final String EMOTE_WINE = "wine_661227:924436057422954549";
+    public static final String EMOTE_BLOOD = "blood_88122c:924436057313923143";
+    public static final String EMOTE_ROSE = "rose_aa1234:924436057460703263";
+    public static final String EMOTE_CHERRY = "cherry_cc1234:924436057259409428";
+    public static final String EMOTE_RUBY = "ruby_ee1234:924436057582342184";
+
+    public static final String EMOTE_SUMMERLOVE = "summerlove_f77b10:924436057230020650";
+    public static final String EMOTE_HONEY = "honey_ffc30b:924436057364262933";
+    public static final String EMOTE_DAZE = "daze_fff476:924436057313906760";
+    public static final String EMOTE_BUZZ = "buzz_fffac2:924436056911269959";
+
+    public static final String EMOTE_LUSH = "lush_05542d:924436057502675014";
+    public static final String EMOTE_FERNY = "ferny_207452:924436056101748826";
+    public static final String EMOTE_CLOVER = "clover_339966:924436055598460939";
+
+    public static final String EMOTE_SERPENT = "serpent_5fceae:924436056869326878";
+    public static final String EMOTE_STORM = "storm_545588:924436056923865098";
+    public static final String EMOTE_PUDDLE = "puddle_687c9e:924436056647016478";
+    public static final String EMOTE_TSUNAMI = "tsunami_7dadba:924436056613482558";
+    public static final String EMOTE_COSTAL = "costal_a4dddd:924436055145463818";
+
+    public static final String EMOTE_ECHO = "echo_7d36ba:924436056097583144";
+    public static final String EMOTE_FORTUNE = "fortune_9f87d5:924436056303108104";
+    public static final String EMOTE_LAVENDER = "lavender_e4c7ff:924436056290504764";
+
+    public static final String EMOTE_DUSTYROSE = "dustyrose_a22849:924436056030457866";
+    public static final String EMOTE_BLOSSOM = "blossom_f92475:924436055686529054";
+    public static final String EMOTE_BLUSH = "blush_f780a7:924436055132889150";
+    public static final String EMOTE_PEACH = "peach_f9aec9:924436056437313597";
+
+    public static final String EMOTE_NORI = "nori_020202:924436057615892540";
+    public static final String EMOTE_COFFEE = "coffee_a27063:924436055933984820";
+    public static final String EMOTE_WARMTH = "warmth_8f7f7f:924436057049681920";
+    public static final String EMOTE_COLD = "cold_848394:924436055938191400";
+    public static final String EMOTE_CANVAS = "canvas_fefefe:924436055741067284";
+
+    // Roles
+    public static final String ROLEID_WINE = "928714112450560070";
+    public static final String ROLEID_BLOOD = "928714573018693632";
+    public static final String ROLEID_ROSE = "928714654094602332";
+    public static final String ROLEID_CHERRY = "928714721320923166";
+    public static final String ROLEID_RUBY = "928714782691958816";
+
+    public static final String ROLEID_SUMMERLOVE = "928715291880480828";
+    public static final String ROLEID_HONEY = "928715304002015252";
+    public static final String ROLEID_DAZE = "928715311161683969";
+    public static final String ROLEID_BUZZ = "928715312612900884";
+
+    public static final String ROLEID_LUSH = "928716047450796113";
+    public static final String ROLEID_FERNY = "928716048939749426";
+    public static final String ROLEID_CLOVER = "928716050424545340";
+
+    public static final String ROLEID_SERPENT = "928717252830842961";
+    public static final String ROLEID_STORM = "928717254219169823";
+    public static final String ROLEID_PUDDLE = "928717254814752829";
+    public static final String ROLEID_TSUNAMI = "928717255993339904";
+    public static final String ROLEID_COSTAL = "928717257901748224";
+
+    public static final String ROLEID_ECHO = "928718748695801856";
+    public static final String ROLEID_FORTUNE = "928718749723422720";
+    public static final String ROLEID_LAVENDER = "928718750587445308";
+
+    public static final String ROLEID_DUSTYROSE = "928720908338741378";
+    public static final String ROLEID_BLOSSOM = "928720909278261318";
+    public static final String ROLEID_BLUSH = "928720909957730345";
+    public static final String ROLEID_PEACH = "928720910918242388";
+
+    public static final String ROLEID_NORI = "928720911421538374";
+    public static final String ROLEID_COFFEE = "928721200568492153";
+    public static final String ROLEID_WARMTH = "928721201034051624";
+    public static final String ROLEID_COLD = "928721201793212436";
+    public static final String ROLEID_CANVAS = "928721202531418243";
+
+    public static final String EMOTE_VIVE = "vive:924444139565760532";
+    public static final String EMOTE_INDEX = "index:924444139314114650";
+    public static final String EMOTE_OCULUS = "oculus:924444139372826655";
+    public static final String EMOTE_FULLBODY = "fullbody:924444139062452236";
+    public static final String EMOTE_DESKTOP = "desktop";
+
  }

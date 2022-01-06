@@ -85,12 +85,31 @@ public class DefaultEmbeds {
 
         embed.setTitle("Status: Partially Open");
 
-        embed.addField("Discord Administrator Application", "https://forms.gle/pDkHwxKZprkLPAMq7", true);
+        embed.addField("Discord Administrator Application", "https://scorched-echo.com/go/chat-mod", true);
         embed.addField("Website Administrator Application", "Not Yet Open", true);
         embed.addBlankField(true);
-        embed.addField("Stream & Chat Moderator", "https://forms.gle/yS8Zn4PJ31jXX93UA", true);
+        embed.addField("Stream & Chat Moderator", "https://scorched-echo.com/go/discord-admin", true);
         embed.addField("Website Moderator", "Not Yet Open", true);
         embed.addBlankField(true);
+
+        return embed.build();
+    }
+
+    public static MessageEmbed credits() {
+        EmbedBuilder embed = new EmbedBuilder();
+        MessageUtilities.addEmbedDefaults(embed);
+        embed.setColor(new Color(111, 83, 112));
+
+        embed.setTitle("Credits");
+
+        // fiverr, emotes, stream layout
+        embed.addField("seb0231 on Fiverr", "Discord Assets\nhttps://www.fiverr.com/seb0231", true);
+        embed.addField("Hugh Leandro on Twitter", "Stream Layout\nhttps://twitter.com/imHugoLeandro", true);
+        embed.addField("Many Artists", "View all here\nhttps://scorched-echo.com/about/echo-bat", true);
+
+        embed.addField("Beautifulkitties12 on DeviantArt", "Emotes\nhttps://www.deviantart.com/beautifulkitties12", true);
+        embed.addField("Yoru#1112 on Discord", "Emotes\nhttps://discord.gg/mDscNrAytV", true);
+        embed.addField("jasper#2262 on Discord", "Emotes", true);
 
         return embed.build();
     }
