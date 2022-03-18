@@ -27,6 +27,7 @@ public class RoleReactEmbeds {
         embed.addField("", "React with :three: for `Art Updates`", false);
         embed.addField("", "React with :four: for `GitHub Updates`", false);
         embed.addField("", "React with :five: for `Partner Updates`", false);
+        embed.addField("", "React with :six: for `Giveaway Updates`", false);
 
         return embed.build();
     }

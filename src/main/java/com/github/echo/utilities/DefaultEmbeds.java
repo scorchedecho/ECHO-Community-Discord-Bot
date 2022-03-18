@@ -60,6 +60,55 @@ public class DefaultEmbeds {
         return embed.build();
     }
 
+    public static MessageEmbed marketRules() {
+        EmbedBuilder embed = new EmbedBuilder();
+        MessageUtilities.addEmbedDefaults(embed);
+        embed.setColor(new Color(111, 83, 112));
+
+        embed.addField("❧ | Credit every single asset on your avatar, even if you made it.",
+                        "➾ Include their Discord tag in your post. If you can't find it, or they don't have one, state their name.\n" +
+                        "➾ Don't post links in your Discord message, but you must include them on the product listing.\n" +
+                        "➾ You may post a text (.txt) file with both their names (and links if you choose) to save space. This is in addition to the product listing.\n"+
+                        "➾ List out every asset with the creators name. Do not list names without saying which asset they made.\n",
+                false);
+
+        embed.addField("❧ | Do not sell assets you do not have the commercial right to sell.",
+                "This is illegal and it is not allowed or welcome in our market. These assets include, but are not limited to:\n" +
+                        "➾ Game rips and assets (Second Life, Shining Nikki, etc.)\n" +
+                        "➾ TDA & IMVU\n" +
+                        "➾ Assets purchased with personal license only",
+                false);
+
+        embed.addField("❧ | Do not sell assets that mimic brands or have brand logos.",
+                "This is illegal and it is not allowed or welcome in our market.",
+                false);
+
+        embed.addField("❧ | Do not advertise uploads or sales through direct messages.",
+                "This is an easy way to scam and hard to moderate.",
+                false);
+
+        embed.addField("❧ | Follow our post etiquette.",
+                        "➾ Use readable text.\n" +
+                        "➾ No advertising preorders, discounts, or sale posts.\n" +
+                        "➾ Do not repost.\n" +
+                        "➾ Do not post other people's avatars, only your own.\n" +
+                        "➾ Link directly to the product page. Do not link to the store page or your Discord server.\n" +
+                        "➾ Do not post \"join my server for a discount/for free\" assets. This is a form of advertising not allowed.\n" +
+                        "➾ Do not include NSFW previews on your sale post or on your product listing. Avoid stating if it is NSFW at all, as it is against VRChat's T.O.S. to sell.\n",
+                false);
+
+        embed.addBlankField(false);
+
+        embed.addField("If you agree to these rules, react below to gain your Verified Seller role.",
+                "If you fail to follow these rules:\n➾ `1st offense` will result in a warning\n" +
+                        "➾ `2nd offense` will result in a 24hr mute\n" +
+                        "➾ `3rd offense` will result in a kick\n" +
+                        "➾ `4th offense` will result in a ban\n",
+                false);
+
+        return embed.build();
+    }
+
     public static MessageEmbed links() {
         EmbedBuilder embed = new EmbedBuilder();
         MessageUtilities.addEmbedDefaults(embed);

@@ -19,6 +19,7 @@ import com.github.echo.core.commands.*;
 import com.github.echo.core.commands.admin.LiveCommand;
 import com.github.echo.core.commands.admin.ShutdownCommand;
 import com.github.echo.core.commands.admin.UpdateConfigCommand;
+import com.github.echo.core.commands.admin.UpdateMessageCommand;
 import com.github.echo.core.commands.admin.embeds.AddDefaultEmbedCommand;
 import com.github.echo.core.commands.admin.embeds.AdoptableEmbedCommand;
 import com.github.echo.core.commands.general.InfoCommand;
@@ -129,6 +130,7 @@ public class Main {
         registerCommand(new ShutdownCommand());
         registerCommand(new UpdateConfigCommand());
         registerCommand(new LiveCommand());
+        registerCommand(new UpdateMessageCommand());
 
         // admin embeds
         registerCommand(new AddDefaultEmbedCommand());

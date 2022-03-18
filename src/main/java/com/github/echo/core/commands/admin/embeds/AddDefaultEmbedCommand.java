@@ -50,6 +50,10 @@ public class AddDefaultEmbedCommand extends Command {
                 mre.getChannel().sendFile(Constants.APPLICATIONS).queue();
                 mre.getChannel().sendMessageEmbeds(DefaultEmbeds.applications()).queue();
             }
+            else if (embedOption.contains("market")) {
+                mre.getChannel().sendFile(Constants.RULES).queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.marketRules()).queue();
+            }
             else if (embedOption.contains("rules")) {
                 // send the embed
                 mre.getChannel().sendFile(Constants.RULES).queue();
