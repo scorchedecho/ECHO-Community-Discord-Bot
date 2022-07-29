@@ -67,10 +67,10 @@ public class MessageUtilities {
         addEmbedDefaults(embed);
 
         // Add information fields
-        embed.setThumbnail("https://cdn.discordapp.com/attachments/693741051327807549/711698762682073108/image0.png");
+        embed.setThumbnail("https://media.discordapp.net/attachments/888533896952676353/888534260535947315/Icon.png?width=701&height=701");
         embed.addField("Version", Constants.VERSION + "." + Constants.BUILD_NUMBER, true);
         embed.addField("Current Prefix", Main.getConfig().getPrefix(), true);
-        embed.addField("Author", "scorchedE.C.H.O#1840 ->", true);
+        embed.addField("Author", "scorchedE.C.H.O#1840", true);
 
         return embed;
     }

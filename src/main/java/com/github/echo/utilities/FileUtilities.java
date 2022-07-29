@@ -32,6 +32,25 @@ import java.io.*;
 public class FileUtilities {
 
     /**
+     * Create a Configuration File from default keys and values.
+     */
+    public static void createConfigurationFile(String fileName, String arrayName, JSONObject object) {
+        // Create Bot config options.
+        JSONArray array = new JSONArray();
+
+        array.put(object);
+
+        JSONObject obj2 = new JSONObject();
+        obj2.put(arrayName, object);
+
+        // Write to the file.
+        if (writeToFile(obj2, fileName) < 0) {
+            Main.getLog().error("Unable to create configuration file.", new NoConfigurationFileException("Unusable configuration file."));
+            Main.shutdown(Constants.STATUS_NO_CONFIG);
+        }
+    }
+
+    /**
      * Adds a JSON Array to the Configuration File.
      *
      * @param obj JSONObject to add to file
@@ -97,17 +116,14 @@ public class FileUtilities {
      */
     @SuppressWarnings("ConstantConditions")
     public static String getValueByKey(String fileName, String key, String arrayLocation) {
-        JSONArray object = getJSONFileArray(fileName);
+        JSONObject object = getJSONFileObject(fileName);
 
         if (object.equals(null)) {
             Main.getLog().error(key + " is null.", new NoConfigurationFileException("Failed to grab " + key));
-            return  "" + Constants.STATUS_NO_CONFIG;
+            return "" + Constants.STATUS_NO_CONFIG;
         }
 
-        JSONObject jsonObject = object.getJSONObject(0);
-        JSONObject array = (JSONObject)jsonObject.opt(arrayLocation);
-
-        return array.optString(key);
+        return object.optString(key);
     }
 
     /**

@@ -16,10 +16,35 @@ import java.awt.*;
  */
 public class DefaultEmbeds {
 
+    private static final Color embedColor = new Color(111, 83, 112);
+
+    // ---------- Links
+    // Applications
+    private static final String adminApps = "https://scorched-echo.com/go/discord-admin";
+    private static final String modApps = "https://scorched-echo.com/go/chat-mod";
+    // Social Media
+    private static final String github = "https://www.github.com/scorchedecho";
+    private static final String twitter = "https://www.twitter.com/scorchedecho";
+    private static final String facebook = "https://www.facebook.com/scorchedecho";
+    private static final String instagram = "https://www.instagram.com/scorchedecho";
+    private static final String deviantart = "https://www.deviantart.com/scorchedecho";
+    private static final String kofi = "https://www.ko-fi.com/scorchedecho";
+    private static final String pinterest = " https://www.pinterest.com/scorchedecho";
+    private static final String twitch = "https://www.twitch.tv/scorched_echo";
+    private static final String reddit = "https://www.reddit.com/user/scorched_echo";
+    private static final String tiktok = "https://www.tiktok.com/@scorchedecho";
+    private static final String youtube = "https://www.youtube.com/channel/UCrgsX1i9c1XKOxXywZ6h7og";
+    private static final String toyhouse = "https://toyhou.se/scorchedecho";
+    private static final String gumroad = "https://store.scorched-echo.com";
+    private static final String discord = "https://discord.gg/HH9EmGD";
+
+    // Other
+    private static final String credits = "https://www.scorched-echo.com/home/about/credits/";
+
     public static MessageEmbed rules() {
         EmbedBuilder embed = new EmbedBuilder();
         MessageUtilities.addEmbedDefaults(embed);
-        embed.setColor(new Color(111, 83, 112));
+        embed.setColor(embedColor);
 
         embed.addField("❧ | No harmful material.",
                 "Any harmful material (including, but not limited to: viruses, scams, disturbing imagery) should not be posted in the server.\n" +
@@ -69,7 +94,8 @@ public class DefaultEmbeds {
                         "➾ Include their Discord tag in your post. If you can't find it, or they don't have one, state their name.\n" +
                         "➾ Don't post links in your Discord message, but you must include them on the product listing.\n" +
                         "➾ You may post a text (.txt) file with both their names (and links if you choose) to save space. This is in addition to the product listing.\n"+
-                        "➾ List out every asset with the creators name. Do not list names without saying which asset they made.\n",
+                        "➾ List out every asset with the creators name. Do not list names without saying which asset they made.\n" +
+                        "➾ Credit yourself for any assets you made. Any and all assets used must be credited to yourself or others.\n",
                 false);
 
         embed.addField("❧ | Do not sell assets you do not have the commercial right to sell.",
@@ -89,7 +115,6 @@ public class DefaultEmbeds {
 
         embed.addField("❧ | Follow our post etiquette.",
                         "➾ Use readable text.\n" +
-                        "➾ No advertising preorders, discounts, or sale posts.\n" +
                         "➾ Do not repost.\n" +
                         "➾ Do not post other people's avatars, only your own.\n" +
                         "➾ Link directly to the product page. Do not link to the store page or your Discord server.\n" +
@@ -116,13 +141,26 @@ public class DefaultEmbeds {
 
         embed.setTitle("Visit my website here!", "https://scorched-echo.com/");
 
-        embed.addField("Twitch", "https://www.twitch.tv/scorched_echo", true);
-        embed.addField("Twitter", "https://www.twitter.com/scorched_echo", true);
-        embed.addField("YouTube", "https://www.youtube.com/c/AJStri", true);
-        embed.addField("GitHub", "https://github.com/scorchedECHO", true);
-        embed.addField("DeviantArt", "https://www.deviantart.com/scorched-echo", true);
-        embed.addField("Toyhouse", "https://toyhou.se/scorched-echo", true);
-        embed.addField("Discord Server Invite Link", "https://discord.gg/HH9EmGD", true);
+        embed.addField("<:" + Constants.EMOTE_GUMROAD + "> Gumroad","[Click Here](" + gumroad + " 'scorchedE.C.H.O on Gumroad')", true);
+        embed.addBlankField(true);
+        embed.addBlankField(true);
+
+        embed.addField("<:" + Constants.EMOTE_TWITTER + "> Twitter","[Click Here](" + twitter + " 'scorchedE.C.H.O on Twitter')", true);
+        embed.addField("<:" + Constants.EMOTE_TWITCH + "> Twitch","[Click Here](" + twitch + " 'scorchedE.C.H.O on Twitch')", true);
+        embed.addField("<:" + Constants.EMOTE_YOUTUBE + "> YouTube","[Click Here](" + youtube + " 'scorchedE.C.H.O on YouTube')", true);
+
+        embed.addField("<:" + Constants.EMOTE_FACEBOOK + "> Facebook","[Click Here](" + facebook + " 'scorchedE.C.H.O on Facebook')", true);
+        embed.addField("<:" + Constants.EMOTE_INSTAGRAM + "> Instagram","[Click Here](" + instagram + " 'scorchedE.C.H.O on Instagram')", true);
+        embed.addField("<:" + Constants.EMOTE_REDDIT + "> Reddit","[Click Here](" + reddit + " 'scorchedE.C.H.O on Reddit')", true);
+
+        embed.addField("<:" + Constants.EMOTE_GITHUB + "> GitHub","[Click Here](" + github + " 'scorchedE.C.H.O on GitHub')", true);
+        embed.addField("<:" + Constants.EMOTE_DEVIANTART + "> DeviantArt","[Click Here](" + deviantart + " 'scorchedE.C.H.O on DeviantArt')", true);
+        embed.addField("<:" + Constants.EMOTE_TIKTOK + "> TikTok","[Click Here](" + tiktok + " 'scorchedE.C.H.O on TikTok')", true);
+
+        embed.addField("<:" + Constants.EMOTE_TOYHOUSE + "> Toyhou.se","[Click Here](" + toyhouse + " 'scorchedE.C.H.O on Toyhou.se')", true);
+        embed.addField("<:" + Constants.EMOTE_PINTEREST + "> Pinterest","[Click Here](" + pinterest + " 'scorchedE.C.H.O on Pinterest')", true);
+
+        embed.addField("<:" + Constants.EMOTE_DISCORD + "> Discord Server","[Click Here](" + discord + " 'scorchedE.C.H.O on Discord')", true);
 
         return embed.build();
     }
@@ -132,14 +170,10 @@ public class DefaultEmbeds {
         MessageUtilities.addEmbedDefaults(embed);
         embed.setColor(new Color(111, 83, 112));
 
-        embed.setTitle("Status: Partially Open");
+        embed.setTitle("Status: Open");
 
-        embed.addField("Discord Administrator Application", "https://scorched-echo.com/go/chat-mod", true);
-        embed.addField("Website Administrator Application", "Not Yet Open", true);
-        embed.addBlankField(true);
-        embed.addField("Stream & Chat Moderator", "https://scorched-echo.com/go/discord-admin", true);
-        embed.addField("Website Moderator", "Not Yet Open", true);
-        embed.addBlankField(true);
+        embed.addField("Discord Administrator Application", "[Click Here](" + adminApps + " 'Administrator Applications')", true);
+        embed.addField("Stream & Chat Moderator", "[Click Here](" + modApps + " 'Moderator Applications')", true);
 
         return embed.build();
     }
@@ -152,13 +186,8 @@ public class DefaultEmbeds {
         embed.setTitle("Credits");
 
         // fiverr, emotes, stream layout
-        embed.addField("seb0231 on Fiverr", "Discord Assets\nhttps://www.fiverr.com/seb0231", true);
-        embed.addField("Hugh Leandro on Twitter", "Stream Layout\nhttps://twitter.com/imHugoLeandro", true);
-        embed.addField("Many Artists", "View all here\nhttps://scorched-echo.com/about/echo-bat", true);
-
-        embed.addField("Beautifulkitties12 on DeviantArt", "Emotes\nhttps://www.deviantart.com/beautifulkitties12", true);
-        embed.addField("Yoru#1112 on Discord", "Emotes\nhttps://discord.gg/mDscNrAytV", true);
-        embed.addField("jasper#2262 on Discord", "Emotes", true);
+        embed.addField("<:" + Constants.EMOTE_BATSTARE + "> Credits","[Click Here](" + credits + " 'View on scorched-echo.com')", true);
+        embed.addField("", "A lot of artists contributed to my identity as you know it. Please check them out here.", false);
 
         return embed.build();
     }
@@ -168,13 +197,12 @@ public class DefaultEmbeds {
         MessageUtilities.addEmbedDefaults(embed);
         embed.setColor(new Color(111, 83, 112));
 
-        embed.addField("Ko-Fi", "https://ko-fi.com/scorched-echo", true);
-        embed.addBlankField(true);
-        embed.addField("PayPal", "https://paypal.me/ajstri", true);
+        embed.addField("<:" + Constants.EMOTE_KOFI + "> Ko-Fi","[Click Here](" + kofi + " 'scorchedE.C.H.O on Ko-Fi')", true);
         embed.addField("Donations are, and always will be, completely optional.",
-                "Please only donate if you enjoy what I do here and have the funds to do so.", false);
-        embed.addField("Ko-Fi Rewards", "Currently, there are no Ko-Fi rewards. However, it is planned that Monthly Subscribers will receive rewards. In addition, one-time and monthly subscribers will gain access to pre-claim on my adoptables.", true);
-        embed.addField("Nitro Rewards", "Currently, there are no Nitro Boosting rewards. However, it is planed that Nitro Boosters will receive rewards. In addition, Nitro Boosters will gain access to pre-claim on my adoptables.", false);
+                "Please only donate if you enjoy what I do here and have the funds\n to do so.", false);
+        embed.addBlankField(false);
+        embed.addField("Ko-Fi Rewards", "Currently, there are no Ko-Fi rewards. However, it is planned that\n Monthly Subscribers will receive rewards. In addition, one-time\n and monthly subscribers will gain access to pre-claim on my\n adoptables.", true);
+        embed.addField("Nitro Rewards", "Currently, there are no Nitro Boosting rewards. However, it is planned\n that Nitro Boosters will receive rewards. In addition, Nitro Boosters\n will gain access to pre-claim on my adoptables.", false);
 
         return embed.build();
     }

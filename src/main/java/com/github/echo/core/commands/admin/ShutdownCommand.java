@@ -4,7 +4,10 @@ import com.github.echo.core.Main;
 import com.github.echo.core.commands.Command;
 import com.github.echo.core.commands.Modules;
 import com.github.echo.utilities.Constants;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,6 +22,12 @@ import java.util.List;
  * @since September 2021
  */
 public class ShutdownCommand extends Command {
+    @Override
+    public void onSlashCommand(@NotNull SlashCommandInteractionEvent sce) {}
+
+    @Override
+    public CommandData getSlashCommandData() { return null; }
+
     @Override
     protected void onCommand(MessageReceivedEvent mre, String[] args) {
         Main.getLog().info("SHUTDOWN (called by " + mre.getAuthor().getAsTag() + ")");

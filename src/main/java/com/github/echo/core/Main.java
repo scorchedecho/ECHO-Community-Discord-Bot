@@ -16,18 +16,17 @@
 package com.github.echo.core;
 
 import com.github.echo.core.commands.*;
-import com.github.echo.core.commands.admin.LiveCommand;
-import com.github.echo.core.commands.admin.ShutdownCommand;
-import com.github.echo.core.commands.admin.UpdateConfigCommand;
-import com.github.echo.core.commands.admin.UpdateMessageCommand;
+import com.github.echo.core.commands.admin.*;
 import com.github.echo.core.commands.admin.embeds.AddDefaultEmbedCommand;
 import com.github.echo.core.commands.admin.embeds.AdoptableEmbedCommand;
 import com.github.echo.core.commands.general.InfoCommand;
+import com.github.echo.core.commands.general.VerifyCommand;
 import com.github.echo.utilities.*;
 import com.github.echo.core.listeners.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 
 import javax.security.auth.login.LoginException;
@@ -48,7 +47,8 @@ public class Main {
 
     // core specific
     private static final Logger log = new Logger();
-    private static Configuration config;
+    private static BotConfiguration config;
+    private static GumroadConfiguration gumroadConfig;
     private static final HelpCommand help = new HelpCommand();
     private static long time = 0;
 
@@ -131,13 +131,15 @@ public class Main {
         registerCommand(new UpdateConfigCommand());
         registerCommand(new LiveCommand());
         registerCommand(new UpdateMessageCommand());
+        registerCommand(new AddProductCommand());
 
         // admin embeds
         registerCommand(new AddDefaultEmbedCommand());
         registerCommand(new AdoptableEmbedCommand());
 
         // generic
-        registerCommand(new InfoCommand());
+        registerSlashCommand(new InfoCommand());
+        registerSlashCommand(new VerifyCommand());
     }
 
     private static void postInitialization() {
@@ -159,11 +161,12 @@ public class Main {
     // internal functions
 
     /**
-     * Enables the use of the {@link Configuration} internally
+     * Enables the use of the {@link BotConfiguration} internally
      *
      */
     public static void enableInternalConfig() {
-        config = new Configuration();
+        config = new BotConfiguration();
+        gumroadConfig = new GumroadConfiguration();
     }
 
     /**
@@ -174,6 +177,19 @@ public class Main {
     @SuppressWarnings("UnusedReturnValue")
     private static void registerCommand(Command command) {
         api.addEventListener(getHelp().registerCommand(command));
+    }
+
+    /**
+     * Registers a single slash command
+     * This will also register the command as a normal command.
+     *
+     * @param command Command to register
+     */
+    private static void registerSlashCommand(Command command) {
+        Guild guild = api.getGuildById(Constants.GUILD_ID);
+
+        guild.updateCommands().addCommands(command.getSlashCommandData()).queue();
+        registerCommand(command);
     }
 
     /**
@@ -203,13 +219,23 @@ public class Main {
     // getter and setter
 
     /**
-     * Retrieve the {@link Configuration} instance
+     * Retrieve the {@link BotConfiguration} instance
      *
-     * @return The {@link Configuration} instance used
+     * @return The {@link BotConfiguration} instance used
      * by the bot
      */
-    public static Configuration getConfig() {
+    public static BotConfiguration getConfig() {
         return config;
+    }
+
+    /**
+     * Retrieve the {@link GumroadConfiguration} instance
+     *
+     * @return The {@link GumroadConfiguration} instance used
+     * by the bot
+     */
+    public static GumroadConfiguration getGumroadConfig() {
+        return gumroadConfig;
     }
 
     /**

@@ -44,12 +44,14 @@ public class Constants {
     public static final String PREFIX_KEY = "prefix";
     public static final String GAME_STATUS_KEY = "game_status";
     public static final String SHARDS_KEY = "shards";
+    public static final String MATHMODE_KEY = "mathmode";
 
     public static final String DEBUG_VALUE = "true";
     public static final String TOKEN_VALUE = "Place your bot token here";
     public static final String PREFIX_VALUE = "/";
     public static final String GAME_STATUS_VALUE = "with my friends";
     public static final String SHARDS_VALUE = "0";
+    public static final String MATHMODE_VALUE = "degrees";
 
     public static final String VERSION = "0";
     public static final String BUILD_NUMBER = "0.2S";
@@ -70,6 +72,7 @@ public class Constants {
     public static final int VOICE_CONNECT_FAIL_OTHER = -3;
 
     public static final String OWNER_ID = "202422697173581824";
+    public static final String GUILD_ID = "562612266856349696";
 
     public static final File WELCOME = new File("discord_assets/Welcome.png");
     public static final File RULES = new File("discord_assets/Rules.png");
@@ -175,5 +178,21 @@ public class Constants {
     public static final String EMOTE_OCULUS = "oculus:924444139372826655";
     public static final String EMOTE_FULLBODY = "fullbody:924444139062452236";
     public static final String EMOTE_DESKTOP = "desktop";
+
+    public static final String EMOTE_GITHUB = "github:956694339944333332";
+    public static final String EMOTE_TWITTER = "twitter:956694339986272256";
+    public static final String EMOTE_FACEBOOK = "facebook:956694339705253928";
+    public static final String EMOTE_INSTAGRAM = "instagram:956694339692662836";
+    public static final String EMOTE_DEVIANTART = "deviantart:956694339742990346";
+    public static final String EMOTE_KOFI = "kofi:956694339596222486";
+    public static final String EMOTE_PINTEREST = "pinterest:956694339822706759";
+    public static final String EMOTE_TWITCH = "twitch:956694339709435924";
+    public static final String EMOTE_REDDIT = "reddit:956694339885600838";
+    public static final String EMOTE_TIKTOK = "tiktok:956694339784933396";
+    public static final String EMOTE_TOYHOUSE = "toyhouse:956695361664192532";
+    public static final String EMOTE_YOUTUBE = "youtube:956697058318880818";
+    public static final String EMOTE_BATSTARE = "batstare:937908111602253834";
+    public static final String EMOTE_GUMROAD = "gumroad:956706612033228861";
+    public static final String EMOTE_DISCORD = "discord:956706611647369238";
 
  }

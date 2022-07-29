@@ -19,8 +19,11 @@ import com.github.echo.core.Main;
 import com.github.echo.utilities.MessageUtilities;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.PrivateChannel;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.List;
@@ -68,6 +71,12 @@ public class HelpCommand extends Command {
                 Modules.MUSIC
         );
     }
+
+    @Override
+    public void onSlashCommand(@NotNull SlashCommandInteractionEvent sce) {}
+
+    @Override
+    public CommandData getSlashCommandData() { return null; }
 
     @Override
     public void onCommand(MessageReceivedEvent mre, String[] args) {

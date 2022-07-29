@@ -6,7 +6,11 @@ import com.github.echo.core.commands.Modules;
 import com.github.echo.utilities.Constants;
 import com.github.echo.utilities.DefaultEmbeds;
 import com.github.echo.utilities.RoleReactEmbeds;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import org.apache.http.impl.client.DefaultUserTokenHandler;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,32 +20,37 @@ import java.util.List;
  *  AddDefaultEmbedCommand class of the ECHO Community Discord Bot project
  *
  *  All methods are explained in {@link Command}
+ *  Slash Command methods are unused as these are owner-only commands.
  *
  * @author ECHO
  * @since September 2021
  */
 public class AddDefaultEmbedCommand extends Command {
     @Override
+    public void onSlashCommand(@NotNull SlashCommandInteractionEvent sce) {}
+
+    @Override
+    public CommandData getSlashCommandData() { return null; }
+
+    @Override
     protected void onCommand(MessageReceivedEvent mre, String[] args) {
         Main.getLog().info("DEFAULT EMBED (called by " + mre.getAuthor().getAsTag() + ")");
+
+        // Check if owner. If not, quit
+        String userID = mre.getAuthor().getId();
+        if (!userID.equals(Constants.OWNER_ID)) {
+            mre.getChannel().sendMessage("This command can only be used by the owner.").queue();
+            return;
+        }
 
         String embedOption = args[1].toLowerCase();
 
         // Embed Menu
         if (!mre.getChannel().getId().equals("")) {
             if (embedOption.contains("wip")) {
-                mre.getChannel().sendMessage("You don't have any WIP embeds.").queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.links()).queue();
             }
             else if (embedOption.contains("info")) {
-                // links and socials
-                mre.getChannel().sendFile(Constants.LINKS).queue();
-                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.links()).queue();
-
-                // donations
-                mre.getChannel().sendFile(Constants.DONATIONS).queue();
-                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.donations()).queue();
-            }
-            else if (embedOption.contains("server")) {
                 // info
                 mre.getChannel().sendFile(Constants.INFO).queue();
                 mre.getChannel().sendMessageEmbeds(DefaultEmbeds.credits()).queue();
@@ -49,6 +58,14 @@ public class AddDefaultEmbedCommand extends Command {
                 // applications
                 mre.getChannel().sendFile(Constants.APPLICATIONS).queue();
                 mre.getChannel().sendMessageEmbeds(DefaultEmbeds.applications()).queue();
+
+                // links and socials
+                mre.getChannel().sendFile(Constants.LINKS).queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.links()).queue();
+
+                // donations
+                mre.getChannel().sendFile(Constants.DONATIONS).queue();
+                mre.getChannel().sendMessageEmbeds(DefaultEmbeds.donations()).queue();
             }
             else if (embedOption.contains("market")) {
                 mre.getChannel().sendFile(Constants.RULES).queue();

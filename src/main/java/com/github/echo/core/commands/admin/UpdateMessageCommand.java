@@ -9,7 +9,10 @@ import com.github.echo.utilities.MessageUtilities;
 import com.github.echo.utilities.RoleReactEmbeds;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -17,7 +20,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class UpdateMessageCommand extends Command {
+    @Override
+    public void onSlashCommand(@NotNull SlashCommandInteractionEvent sce) {}
 
+    @Override
+    public CommandData getSlashCommandData() { return null; }
 
     @Override
     protected void onCommand(MessageReceivedEvent mre, String[] args) {
@@ -39,8 +46,8 @@ public class UpdateMessageCommand extends Command {
             channel.
         }*/
 
-        mre.getGuild().getTextChannelById("935321062583980044").retrieveMessageById("935344475511865344").queue((message -> {
-            message.editMessageEmbeds(DefaultEmbeds.marketRules()).queue();
+        mre.getGuild().getTextChannelById("928725880740675634").retrieveMessageById("928726052853940224").queue((message -> {
+            message.editMessageEmbeds(RoleReactEmbeds.notificationRoles()).queue();
         }));
 
         // delete msg

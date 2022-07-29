@@ -6,7 +6,10 @@ import com.github.echo.core.commands.Modules;
 import com.github.echo.utilities.Constants;
 import com.github.echo.utilities.MessageUtilities;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.io.File;
@@ -15,6 +18,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class LiveCommand extends Command {
+    @Override
+    public void onSlashCommand(@NotNull SlashCommandInteractionEvent sce) {}
+
+    @Override
+    public CommandData getSlashCommandData() { return null; }
 
     private static final String link = "https://twitch.tv/scorched-echo";
     private static final String banner = "https://media.discordapp.net/attachments/888533896952676353/888534241137287259/Banner_with_Bat.png?width=2052&height=843";
@@ -22,6 +30,13 @@ public class LiveCommand extends Command {
     @Override
     protected void onCommand(MessageReceivedEvent mre, String[] args) {
         Main.getLog().info("LIVE (called by " + mre.getAuthor().getAsTag() + ")");
+
+        // Check if owner. If not, quit
+        String userID = mre.getAuthor().getId();
+        if (!userID.equals(Constants.OWNER_ID)) {
+            mre.getChannel().sendMessage("This command can only be used by the owner.").queue();
+            return;
+        }
 
         // handle args
         StringBuilder combinedArgs = new StringBuilder();

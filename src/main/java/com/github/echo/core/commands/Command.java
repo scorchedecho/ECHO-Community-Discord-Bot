@@ -18,8 +18,11 @@ package com.github.echo.core.commands;
 import com.github.echo.core.Main;
 import com.github.echo.utilities.Constants;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -32,6 +35,19 @@ import java.util.List;
  * @since September 2020
  */
 public abstract class Command extends ListenerAdapter {
+
+    /**
+     * Calls a slash command
+     * @param sce Event triggered
+     */
+    public abstract void onSlashCommand(@NotNull SlashCommandInteractionEvent sce);
+
+    /**
+     * Slash Command data
+     * @return data of the Slash Command
+     */
+    public abstract CommandData getSlashCommandData();
+
 
     /**
      * Calls a command
@@ -98,6 +114,21 @@ public abstract class Command extends ListenerAdapter {
             onCommand(mre, commandArgs(mre.getMessage()));
         }
 
+    }
+
+    /**
+     * Called when Slash Command is received visible to the Bot.
+     * Determines if there was a command called, and if so,
+     * executes the command.
+     * @param sce Event triggered.
+     */
+    @Override
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent sce) {
+        if (sce.getName().equals(getSlashCommandData().getName())) {
+            Main.getLog().info("Calling a slash command...");
+
+            onSlashCommand(sce);
+        }
     }
 
     /**

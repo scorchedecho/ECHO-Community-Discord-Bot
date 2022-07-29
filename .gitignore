@@ -5,3 +5,5 @@ discord_assets
 *.iml
 
 target/*
+/gumroad.json
+src/main/resources/META-INF/MANIFEST.MF
